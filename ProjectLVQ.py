@@ -25,3 +25,15 @@ elif classifier.predict(u_input) == 1:
 else:
 	print('virginica')
 pickle.dump(classifier,open('NEwQuerty.sav','wb'))
+
+# for using train model 
+import numpy as np
+import pickle
+classs = pickle.load(open('NEwQuerty.sav','rb'))
+u_input = np.array([[6.4, 3.5, 4.5, 1.2]])
+if classs.predict(u_input) == 0:
+	print('Setosa')
+elif classs.predict(u_input) == 1:
+	print('Versicolor')
+else:
+	print('virginica')
