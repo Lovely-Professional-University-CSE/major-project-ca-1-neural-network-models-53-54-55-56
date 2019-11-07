@@ -1,21 +1,16 @@
-import numpy as np
+import numpy as np # for performing linear algebric operations
 
-from sklearn.datasets import load_iris
+from sklearn.datasets import load_iris # contains iris dataset
 
-data=load_iris()
+data=load_iris() # load the dataset
 
 
-x = data.data
-w =[]
+x = data.data # get data points
+w =np.array([np.random.rand(2) for i in range(len(x))]) #generated random weights using numpy
 
-for i in range(len(x)):
-    w.append(np.random.rand(2))
-
-w=np.array(w)
-
-lrate= 0.6
-e=1
-D=[0,0]
+lrate= 0.6 # learning rate
+e=1 # number of epoch 
+D=[0,0] # Dimension
 print('learning rate of this epoch is',lrate);
 while(e<=3): # e is epoch
     print('Epoch is',e);
