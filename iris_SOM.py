@@ -1,6 +1,18 @@
 import numpy as np
-x = np.array([[ 1, 1, 0, 0],[0, 0, 0, 1],[1, 0, 0, 0],[0, 0, 1, 1]])
-w =np.array([[0.2 ,0.8], [0.6, 0.4], [0.5, 0.7], [0.9, 0.3]])
+
+from sklearn.datasets import load_iris
+
+data=load_iris()
+
+
+x = data.data
+w =[]
+
+for i in range(len(x)):
+    w.append(np.random.rand(2))
+
+w=np.array(w)
+
 lrate= 0.6
 e=1
 D=[0,0]
