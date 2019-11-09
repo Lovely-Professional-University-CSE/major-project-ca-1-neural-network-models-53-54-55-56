@@ -8,8 +8,6 @@ Created on Thu Nov  7 23:40:37 2019
 import numpy as np
 import pandas as pd
 from neupy import algorithms
-import seaborn as sns
-sns.set_palette('husl')
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 import pickle
