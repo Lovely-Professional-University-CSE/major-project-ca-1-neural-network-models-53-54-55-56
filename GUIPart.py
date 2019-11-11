@@ -33,6 +33,8 @@ x=iris.data
 y=iris.target
 data = pd.DataFrame(iris.data)
 
+
+
 def Svm():
     
     os.system('python3 Svm.py')
@@ -118,7 +120,17 @@ def fuc():
     pickle.dump(classifier,open('NEwQuerty.sav','wb'))
     global lvq
     lvq = accuracy_score(y_test,predictions)
-            
+ 
+def hideBG():
+    global state
+    if state == "Hidden":
+        img.grid()
+        
+
+    elif state == "Showing":
+        img.grid_forget()
+        
+           
 def algorithms():
     print("Hello")
     if (e1.get() and e2.get() and e3.get() and e4.get()!= ""):
@@ -135,36 +147,53 @@ def algorithms():
                msg = messagebox.showinfo('Message','Setosa')
                print('Setosa')
                status_label.config(text="Setosa")
+               img1.grid_forget()
+               img2.grid_forget()
+               img.grid()
+               
                
         elif classs.predict(u_input) == 1:
                 msg = messagebox.showinfo('Message','Versicolor')
                 print('Versicolor')
                 status_label.config(text="Versicolor")
-
+                img.grid_forget()
+                img2.grid_forget()
+                img1.grid()
+                
         else:
             
                 msg = messagebox.showinfo('Message','virginica')
                 print('virginica')
                 status_label.config(text="virginica")
+                img.grid_forget()
+                img1.grid_forget()
+                img2.grid()
+                
+                
 
     else:
           msg = messagebox.showinfo('Message','Enter the Values First')
           answer_label.config(text="Enter the Length and Width",fg='green')
+          status_label.config(text="-----")
+          img.grid_forget()
+          img1.grid_forget()
+          img2.grid_forget()
+          
     print("EXIT")
 def fff():
   ##########################################################  
     roots.destroy()
     master = Tk()
     
-    master.geometry('400x400')
+    master.geometry('1000x1000')
     global answer_label
     answer_label =Label(master, text ="---")
     answer_label.grid(row =10, column =0)
     
-    Label(master, text='Sepal_length',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=0) 
-    Label(master, text='Sepal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=1)
-    Label(master, text='Petal_lenth',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=2) 
-    Label(master, text='Petal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=3)
+    Label(master, text='Sepal_length',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=2,padx=20) 
+    Label(master, text='Sepal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=3,padx=20)
+    Label(master, text='Petal_lenth',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=4,padx=20) 
+    Label(master, text='Petal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=5,padx=20)
     global e1  
     global e2 
     global e3  
@@ -175,10 +204,10 @@ def fff():
     e3 = Entry(master,background='grey') 
     e4 = Entry(master,background='grey')
     
-    e1.grid(row=0, column=1,pady=10) 
-    e2.grid(row=1, column=1,pady=10)
-    e3.grid(row=2, column=1,pady=10) 
-    e4.grid(row=3, column=1,pady=10)
+    e1.grid(row=2, column=1,pady=10) 
+    e2.grid(row=3, column=1,pady=10)
+    e3.grid(row=4, column=1,pady=10) 
+    e4.grid(row=5, column=1,pady=10)
     
     calculate_button =Button(master, text="FIND", command= algorithms)
     calculate_button.grid(row =7, column =0, columnspan =2)
@@ -186,8 +215,32 @@ def fff():
     global status_label
     status_label =Label(master, height =5, width =25, bg ="black", fg ="#00FF00", text ="---", wraplength =150)
     status_label.grid(row =8, column =0, columnspan =2)
+    
+    global img
+    load = Image.open("Iris_setosa.jpg")
+    render = ImageTk.PhotoImage(load)
+    img = Label(image=render,bg='green',height=250)
+    img.image = render
+    img.grid(row = 11, column=0,sticky=W) 
+    #img.grid_forget()
+    
+    global img1
+    load1 = Image.open("Iris_versicolor.jpg")
+    render1 = ImageTk.PhotoImage(load1)
+    img1 = Label(image=render1,bg='green',height=250)
+    img1.image = render1
+    img1.grid(row = 11, column=1) 
+    #img1.grid_forget()
+    
+    
+    global img2
+    load2 = Image.open("Iris_virginica.jpg")
+    render2 = ImageTk.PhotoImage(load2)
+    img2 = Label(image=render2,bg='green',height=250)
+    img2.image = render2
+    img2.grid(row = 11, column=2,sticky=E) 
+    #img2.grid_forget()
     mainloop() 
-
 ##################################################################    
 roots = Tk()
 t = roots.geometry('1200x900')
@@ -229,9 +282,10 @@ compareButton.grid(column=3, row=2, padx=10,pady=10,sticky=E)
 
 setosalabel = Label(roots, text='SETOSA', background='black', fg='white', font=("Cursive", 20))
 setosalabel.grid(row = 3,column = 0)
+
 load = Image.open("Iris_setosa.jpg")
 render = ImageTk.PhotoImage(load)
-img = Label(image=render,height = 300,bg='blue')
+img = Label(image=render,height = 250,bg='blue')
 img.image = render
 img.grid(row = 5, column=0)
 
@@ -246,11 +300,14 @@ img.grid(row = 5, column=1)
 
 virglabel = Label(roots, text='VIRGINICA', background='black', fg='white', font=("Bold",20))
 virglabel.grid(row = 3,column = 2)
+
 load = Image.open("Iris_virginica.jpg")
 render = ImageTk.PhotoImage(load)
 img = Label(image=render,bg='green')
 img.image = render
 img.grid(row = 5, column=2)    
+
+
 
 ### buttons individual
 
