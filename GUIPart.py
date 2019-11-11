@@ -34,24 +34,20 @@ y=iris.target
 data = pd.DataFrame(iris.data)
 
 def Svm():
-    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
-    os.system('chmod +x Svm.py')
+    
     os.system('python3 Svm.py')
     
 def Som():
-    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
-    os.system('chmod +x iris_SOM.py')
+    
     os.system('python3 iris_SOM.py')
     
 def Lvq():
-    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
-    os.system('chmod +x ProjectLVQ.py')
+    
     os.system('python3 ProjectLVQ.py')
     
 
 def Perceptron():
-    os.system('/Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56/Perceptron.py')
-    os.system('chmod +x Perceptron.py')
+    
     os.system('python3 Perceptron.py')
     
 def Compare():
