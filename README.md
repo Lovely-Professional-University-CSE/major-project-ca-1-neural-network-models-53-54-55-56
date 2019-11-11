@@ -9,7 +9,7 @@ We gave 3 types of species setosa, vesricolor, virginica.
 
 # We are working on the Different Models such as perceptron, Som, Lvq, Svm
 
-1. Preceptron:-A perceptron is a simple model of a biological neuron in an artificial neural network. ... The perceptron algorithm was designed to classify visual inputs, categorizing subjects into one of two types and separating groups with a line. Classification is an important part of machine learning and image processing.
+1. Preceptron:-A perceptron is a simple model of a biological neuron in an artificial neural network. The perceptron algorithm was designed to classify visual inputs, categorizing subjects into one of two types and separating groups with a line. Classification is an important part of machine learning and image processing.
 
 2. SOM:-A self-organizing map (SOM) is a type of artificial neural network (ANN) that is trained using unsupervised learning to produce a low-dimensional (typically two-dimensional), discretized representation of the input space of the training samples, called a map, and is therefore a method to do dimensionality reduction
 
