@@ -121,16 +121,7 @@ def fuc():
     global lvq
     lvq = accuracy_score(y_test,predictions)
  
-def hideBG():
-    global state
-    if state == "Hidden":
-        img.grid()
-        
-
-    elif state == "Showing":
-        img.grid_forget()
-        
-           
+              
 def algorithms():
     print("Hello")
     if (e1.get() and e2.get() and e3.get() and e4.get()!= ""):
@@ -307,6 +298,9 @@ img = Label(image=render,bg='green')
 img.image = render
 img.grid(row = 5, column=2)    
 
+
+virglabel = Label(roots, text='Lets run the independent code of all the different Models in the above Buttons', background='black', fg='white', font=("Bold",10))
+virglabel.grid(row = 10,column = 0)
 
 
 ### buttons individual
