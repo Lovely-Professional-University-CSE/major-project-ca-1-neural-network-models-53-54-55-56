@@ -67,7 +67,7 @@ y
 y = np.where(y == 'Iris-setosa', -1, 1)
 y
 X = df.iloc[0:100, [0, 2]].values
-x
+
 
 
 # In[15]:

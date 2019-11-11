@@ -11,16 +11,19 @@ from neupy import algorithms
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 import pickle
+import sys
+import os
 from  sklearn import  datasets
-
+from sklearn.model_selection import train_test_split
+import sklearn
 from sklearn.metrics import accuracy_score
-
+from sklearn.linear_model import LogisticRegression
 from tkinter import *
 from tkinter import messagebox
-
+import sklearn
 from tkinter import *
 
-# pip install pillow
+# pip install pillow 
 from PIL import Image, ImageTk
 
 
@@ -30,11 +33,45 @@ x=iris.data
 y=iris.target
 data = pd.DataFrame(iris.data)
 
+def Svm():
+    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
+    os.system('chmod +x Svm.py')
+    os.system('python3 Svm.py')
+    
+def Som():
+    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
+    os.system('chmod +x iris_SOM.py')
+    os.system('python3 iris_SOM.py')
+    
+def Lvq():
+    os.system('cd Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56')
+    os.system('chmod +x ProjectLVQ.py')
+    os.system('python3 ProjectLVQ.py')
+    
 
-
-
+def Perceptron():
+    os.system('/Users/abhishek/Desktop/major-project-ca-1-neural-network-models-53-54-55-56/Perceptron.py')
+    os.system('chmod +x Perceptron.py')
+    os.system('python3 Perceptron.py')
+    
 def Compare():
-    pass
+    
+    iris=datasets.load_iris()
+    #print(iris.data)
+    X=iris.data[:,[2,3]] #train
+    print(X)
+    y=iris.target 
+    print(y)
+    #plt.plot(X)
+    #from sklearn.model_selection import train_test_split
+    X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=0)
+    svc = sklearn.svm.SVC()
+    svc.fit(X_train,y_train)
+    y_pred=svc.predict(X_test)
+    print('misclassified %d'%(y_test!=y_pred).sum())
+    from sklearn.metrics import accuracy_score
+    print('Accuracy %2f'%accuracy_score(y_test,y_pred))
+    msg = messagebox.showinfo('Maximum Accuracy SVM',accuracy_score(y_test,y_pred))
 
 def Visual():
     
@@ -73,9 +110,7 @@ def Visual():
 
 
 def fuc():
-    iris=datasets.load_iris()
-    x=iris.data
-    y=iris.target
+    
     from sklearn.model_selection import train_test_split
     x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=.2)
 
@@ -85,7 +120,8 @@ def fuc():
     msg = messagebox.showinfo('Message',accuracy_score(y_test,predictions))
 
     pickle.dump(classifier,open('NEwQuerty.sav','wb'))
-       
+    global lvq
+    lvq = accuracy_score(y_test,predictions)
             
 def algorithms():
     print("Hello")
@@ -201,8 +237,7 @@ load = Image.open("Iris_setosa.jpg")
 render = ImageTk.PhotoImage(load)
 img = Label(image=render,height = 300,bg='blue')
 img.image = render
-
-img.grid(row = 10, column=0)
+img.grid(row = 5, column=0)
 
 
 versilabel = Label(roots, text='VERSICOLOR', background='black', fg='white', font=("aeril", 20))
@@ -211,7 +246,7 @@ load = Image.open("Iris_Versicolor.jpg")
 render = ImageTk.PhotoImage(load)
 img = Label(image=render,bg='red')
 img.image = render
-img.grid(row = 10, column=1)  
+img.grid(row = 5, column=1)  
 
 virglabel = Label(roots, text='VIRGINICA', background='black', fg='white', font=("Bold",20))
 virglabel.grid(row = 3,column = 2)
@@ -219,9 +254,22 @@ load = Image.open("Iris_virginica.jpg")
 render = ImageTk.PhotoImage(load)
 img = Label(image=render,bg='green')
 img.image = render
-img.grid(row = 10, column=2)    
+img.grid(row = 5, column=2)    
 
+### buttons individual
 
+testButton = Button(roots, text='Perceptron',fg='green',width=8,height=2, command=Perceptron)
+testButton.grid(column=0, row=9, padx=10)
 
+trainButton = Button(roots, text='LVQ',fg='green',width=6,height=2, command=Lvq)
+trainButton.grid(column=1, row=9, padx=10)
+
+visButton = Button(roots, text='SVM',fg='green',width=6,height=2, command=Svm)
+visButton.grid(column=2, row=9, padx=10,pady=10)
+
+compareButton = Button(roots, text='SOM',fg='green',width=6,height=2, command=Som)
+compareButton.grid(column=3, row=9, padx=10,pady=10)
+
+## 
 roots.mainloop()
 
