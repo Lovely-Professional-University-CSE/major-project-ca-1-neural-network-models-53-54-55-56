@@ -27,4 +27,5 @@ We have 3 types of species in our dataset setosa, versicolor, virginica.
 
 [LvQ]
 [Percepton]
-[]
+[]SVM
+![SOM]
