@@ -17,15 +17,5 @@ We gave 3 types of species setosa, vesricolor, virginica.
 
 4. SVM:-In machine learning, support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.
 
-![picture](https://www.google.com/search?q=setosa&sxsrf=ACYBGNTsLKpYVm0rrMfUpMwwLvBhTfaBXg:1573462131244&tbm=isch&source=iu&ictx=1&fir=Ks_-_7ZBxH2nDM%253A%252CloMPw0AbXOCEuM%252C%252Fm%252F01295w_z&vet=1&usg=AI4_-kQ8FRU0hSSZX3ky1t9bhQC0FJbHqw&sa=X&ved=2ahUKEwiGyJmb4-HlAhWhjuYKHT7NARYQ_B0wFXoECAYQAw#imgrc=Ks_-_7ZBxH2nDM:)
-
-
-
-![picture](https://www.google.com/search?q=versicolor+flower&bih=646&biw=1366&hl=en&sxsrf=ACYBGNSaZ7f2jjfbVBwQKivvBzYYpb0W2Q:1573462640526&tbm=isch&source=iu&ictx=1&fir=jx62p8GHmQhgNM%253A%252CQkwbk3PY7CjHLM%252C%252Fm%252F09rf8m&vet=1&usg=AI4_-kTf3mEeVBobuSiP6zNBCOqRxONFtw&sa=X&ved=2ahUKEwjbzIWO5eHlAhXFheYKHYf3DRUQ_B0wE3oECAcQAw#imgrc=jx62p8GHmQhgNM:)
-
-
-
-
-![picture](https://www.google.com/search?q=virginica+flower&bih=646&biw=1366&hl=en&sxsrf=ACYBGNQsvDEwXDMCBSFivoHTjaND9cDXMQ:1573462667319&tbm=isch&source=iu&ictx=1&fir=vhJeDEHYSpXqUM%253A%252CObshDB616CHvIM%252C%252Fm%252F0g53rzq&vet=1&usg=AI4_-kTVkqdN8vthHBvV-FsFhphpLbp3dg&sa=X&ved=2ahUKEwighOma5eHlAhUWH7cAHUZ0DvgQ_B0wC3oECAoQAw#imgrc=vhJeDEHYSpXqUM:)
 
 
