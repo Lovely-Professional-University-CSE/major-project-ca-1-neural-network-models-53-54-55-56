@@ -4,7 +4,7 @@ major-project-ca-1-neural-network-models-53-54-55-56 created by GitHub Classroom
 # We are working on Iris DataSet.
 # Dataset has 5 attributes.(Sepal width ,Sepal length, petal length, petal width, and target)
 
-#We need to classify the species of the flower 
+We need to classify the species of the flower 
 We gave 3 types of species setosa, vesricolor, virginica.
 
 # We are working on the Different Models such as perceptron, Som, Lvq, Svm
@@ -15,6 +15,6 @@ We gave 3 types of species setosa, vesricolor, virginica.
 
 3. LVQ:-The Learning Vector Quantization algorithm (or LVQ for short) is an artificial neural network algorithm that lets you choose how many training instances to hang onto and learns exactly what those instances should look like.
 
-4. SVM:-Support-vector machine. In machine learning, support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.
+4. SVM:-In machine learning, support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.
 
 
