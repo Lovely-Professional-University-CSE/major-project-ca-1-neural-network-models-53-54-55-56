@@ -17,6 +17,6 @@ We gave 3 types of species setosa, vesricolor, virginica.
 
 4. SVM:-In machine learning, support-vector machines (SVMs, also support-vector networks) are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.
 
-![alt text](http://url/to/img.png)
+![alt text](Iris_setosa.jpg)
 
 
