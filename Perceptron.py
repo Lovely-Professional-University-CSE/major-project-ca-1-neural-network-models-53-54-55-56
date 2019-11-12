@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-
-
-
-# In[6]:
-
 
 import numpy as np
 
@@ -48,9 +40,6 @@ class Perceptron(object):
       return np.where(self.net_input(X) >= 0.0, 1, -1)
 
 
-# In[9]:
-
-
 
 import pandas as pd
 df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
@@ -58,9 +47,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-# In[14]:
 
-
+print(df.head())
 df.tail()
 y = df.iloc[0:100, 4].values
 y
@@ -69,19 +57,12 @@ y
 X = df.iloc[0:100, [0, 2]].values
 
 
-
-# In[15]:
-
-
 plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o', label='setosa')
 plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='x', label='versicolor')
 plt.xlabel('petal length')
 plt.ylabel('sepal length')
 plt.legend(loc='upper left')
 plt.show()
-
-
-# In[22]:
 
 
 
@@ -117,8 +98,6 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
       marker=markers[idx], label=cl)
 
 
-# In[23]:
-
 
 
 plot_decision_regions(X, y, classifier=pn)
@@ -126,9 +105,6 @@ plt.xlabel('sepal length [cm]')
 plt.ylabel('petal length [cm]')
 plt.legend(loc='upper left')
 plt.show()
-
-
-# In[ ]:
 
 
 

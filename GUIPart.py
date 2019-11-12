@@ -4,14 +4,14 @@
 Created on Fri Nov  8 02:36:48 2019
 
 @author: abhishek (Frtug)
-"""
+""" 
 import numpy as np
 import pandas as pd
 from neupy import algorithms
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 import pickle
-import sys
+
 import os
 from  sklearn import  datasets
 from sklearn.model_selection import train_test_split
@@ -35,6 +35,7 @@ data = pd.DataFrame(iris.data)
 
 
 
+
 def Svm():
     
     os.system('python3 Svm.py')
@@ -50,7 +51,7 @@ def Lvq():
 
 def Perceptron():
     
-    os.system('python3 Perceptron.py')
+    os.system('python3 updatedPerceptron.py')
     
 def Compare():
     
@@ -150,9 +151,8 @@ def algorithms():
                 img.grid_forget()
                 img2.grid_forget()
                 img1.grid()
-                
-        else:
-            
+           
+        else:        
                 msg = messagebox.showinfo('Message','virginica')
                 print('virginica')
                 status_label.config(text="virginica")
@@ -169,36 +169,39 @@ def algorithms():
           img.grid_forget()
           img1.grid_forget()
           img2.grid_forget()
-          
+    
     print("EXIT")
+
 def fff():
   ##########################################################  
     roots.destroy()
+    global master
     master = Tk()
     
-    master.geometry('1000x1000')
+    master.geometry('600x600')
     global answer_label
     answer_label =Label(master, text ="---")
     answer_label.grid(row =10, column =0)
     
-    Label(master, text='Sepal_length',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=2,padx=20) 
-    Label(master, text='Sepal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=3,padx=20)
-    Label(master, text='Petal_lenth',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=4,padx=20) 
-    Label(master, text='Petal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=5,padx=20)
+    Label(master, text='Sepal_length',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=0,padx=20) 
+    Label(master, text='Sepal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=1,padx=20)
+    Label(master, text='Petal_lenth',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=2,padx=20) 
+    Label(master, text='Petal_width',height=1, background='black', fg='white',font=("Cursive", 20)).grid(row=3,padx=20)
+   
     global e1  
     global e2 
     global e3  
     global e4 
     
-    e1 = Entry(master,background='grey') 
-    e2 = Entry(master,background='grey')
-    e3 = Entry(master,background='grey') 
-    e4 = Entry(master,background='grey')
+    e1 = Entry(master,background='black',fg='white') 
+    e2 = Entry(master,background='black',fg='white')
+    e3 = Entry(master,background='black',fg='white') 
+    e4 = Entry(master,background='black',fg='white')
     
-    e1.grid(row=2, column=1,pady=10) 
-    e2.grid(row=3, column=1,pady=10)
-    e3.grid(row=4, column=1,pady=10) 
-    e4.grid(row=5, column=1,pady=10)
+    e1.grid(row=0, column=1,pady=10) 
+    e2.grid(row=1, column=1,pady=10)
+    e3.grid(row=2, column=1,pady=10) 
+    e4.grid(row=3, column=1,pady=10)
     
     calculate_button =Button(master, text="FIND", command= algorithms)
     calculate_button.grid(row =7, column =0, columnspan =2)
@@ -213,7 +216,7 @@ def fff():
     img = Label(image=render,bg='green',height=250)
     img.image = render
     img.grid(row = 11, column=0,sticky=W) 
-    #img.grid_forget()
+    img.grid_forget()
     
     global img1
     load1 = Image.open("Iris_versicolor.jpg")
@@ -221,7 +224,10 @@ def fff():
     img1 = Label(image=render1,bg='green',height=250)
     img1.image = render1
     img1.grid(row = 11, column=1) 
-    #img1.grid_forget()
+    img1.grid_forget()
+    
+    button = Button(master, text = "Home",height=1,width=5, command = my)
+    button.grid(row = 0,column=3)
     
     
     global img2
@@ -230,93 +236,96 @@ def fff():
     img2 = Label(image=render2,bg='green',height=250)
     img2.image = render2
     img2.grid(row = 11, column=2,sticky=E) 
-    #img2.grid_forget()
+    img2.grid_forget()
     mainloop() 
+    
+    
 ##################################################################    
-roots = Tk()
-t = roots.geometry('1200x900')
-print(t)
-roots['bg'] = 'grey'
-roots.title('Details')
-intro = Label(roots, text='Project ',anchor="center", background='black', fg='white', font=("Bold", 70))
-intro.grid(sticky=N,padx=20,pady=20,columnspan=2)
+def main():
+    global roots    
+    roots = Tk()
+    t = roots.geometry('1400x900')
+    print(t)
+    roots['bg'] = 'grey'
+    roots.title('Details')
+    intro = Label(roots, text='Project ',anchor="center", background='black', fg='white', font=("Bold", 70))
+    intro.grid(sticky=N,padx=20,pady=20,columnspan=2)
+    
+    
+    n1 = Label(roots, text=' Machine Learning: ', background='black', fg='white', font=("Cursive", 40))
+    p1 = Label(roots, text=" MODEL ", background='black', fg='white', font=("Cursive", 40))
+    n1.grid(row=1, sticky=W, column=0, padx=10, pady=20)
+    p1.grid(row=2, sticky=W, column=0, padx=10, pady=20)
+    
+    n2 = Label(roots, text=' IRIS DATASET ', background='black', fg='white', font=("Cursive", 40))
+    p2 = Label(roots, text=" CLASSIFICATION: ", background='black', fg='white', font=("Cursive", 40))
+    n2.grid(row=1, sticky=E, column=1, padx=10, pady=20)
+    p2.grid(row=2, sticky=E, column=1, padx=10, pady=20)
 
+    #n2.config(state = 'disabled')
+    #p2.config(state = 'disabled')
+    
+    n2.grid(row=1, column=1, sticky=E, padx=20)
+    p2.grid(row=2, column=1, sticky=E, padx=20)
+    
+    testButton = Button(roots, text='TEST',fg='red',width=7,height=2, command=fff)
+    testButton.grid(column=2, row=1, padx=10,sticky=E)
+    
+    trainButton = Button(roots, text='TRAINING',fg='red',width=7,height=2, command=fuc)
+    trainButton.grid(column=2, row=2, padx=10,sticky=E)
+    
+    visButton = Button(roots, text='VISUAL',fg='red',width=7,height=2, command=Visual)
+    visButton.grid(column=3, row=1, padx=10,pady=10,sticky=E)
+    
+    compareButton = Button(roots, text='COMPARE',fg='red',width=7,height=2, command=Compare)
+    compareButton.grid(column=3, row=2, padx=10,pady=10,sticky=E)
+    
+    setosalabel = Label(roots, text='SETOSA', background='black', fg='white', font=("Cursive", 20))
+    setosalabel.grid(row = 3,column = 0)
+    
+    load = Image.open("Iris_setosa.jpg")
+    render = ImageTk.PhotoImage(load)
+    img = Label(image=render,height = 250,bg='red')
+    img.image = render
+    img.grid(row = 5, column=0)
+    
+    
+    versilabel = Label(roots, text='VERSICOLOR', background='black', fg='white', font=("aeril", 20))
+    versilabel.grid(row = 3,column = 1)
+    load = Image.open("Iris_Versicolor.jpg")
+    render = ImageTk.PhotoImage(load)
+    img = Label(image=render,bg='green',height=250)
+    img.image = render
+    img.grid(row = 5, column=1)  
+    
+    virglabel = Label(roots, text='VIRGINICA', background='black', fg='white', font=("Bold",20))
+    virglabel.grid(row = 3,column = 2)
+    
+    load = Image.open("Iris_virginica.jpg")
+    render = ImageTk.PhotoImage(load)
+    img = Label(image=render,bg='blue',height=250)
+    img.image = render
+    img.grid(row = 5, column=2,padx=40)    
+    
+    
+    ### buttons individual
+    
+    testButton = Button(roots,text='Perceptron',fg='green',width=8,height=2, command=Perceptron)
+    testButton.grid(column=0, row=9,pady=10)
+    
+    trainButton = Button(roots,text='LVQ',fg='green',width=6,height=2, command=Lvq)
+    trainButton.grid(column=1, row=9,pady=10)
+    
+    visButton = Button(roots,text='SVM',fg='green',width=6,height=2, command=Svm)
+    visButton.grid(column=2, row=9,pady=10)
+    
+    compareButton = Button(roots,text='SOM',fg='green',width=6,height=2, command=Som)
+    compareButton.grid(column=3, row=9,pady=10)
+    
+    roots.mainloop()
+def my():
+    master.destroy()
+    main()
+ 
 
-n1 = Label(roots, text=' Machine Learning: ', background='black', fg='white', font=("Cursive", 40))
-p1 = Label(roots, text=" MODEL ", background='black', fg='white', font=("Cursive", 40))
-n1.grid(row=1, sticky=W, column=0, padx=10, pady=20)
-p1.grid(row=2, sticky=W, column=0, padx=10, pady=20)
-
-n2 = Label(roots, text=' IRIS DATASET ', background='black', fg='white', font=("Cursive", 40))
-p2 = Label(roots, text=" CLASSIFICATION: ", background='black', fg='white', font=("Cursive", 40))
-n2.grid(row=1, sticky=E, column=1, padx=10, pady=20)
-p2.grid(row=2, sticky=E, column=1, padx=10, pady=20)
-
-
-#n2.config(state = 'disabled')
-#p2.config(state = 'disabled')
-
-n2.grid(row=1, column=1, sticky=E, padx=20)
-p2.grid(row=2, column=1, sticky=E, padx=20)
-
-testButton = Button(roots, text='TEST',fg='red',width=7,height=2, command=fff)
-testButton.grid(column=2, row=1, padx=10,sticky=E)
-
-trainButton = Button(roots, text='TRAINING',fg='red',width=7,height=2, command=fuc)
-trainButton.grid(column=2, row=2, padx=10,sticky=E)
-
-visButton = Button(roots, text='VISUAL',fg='red',width=7,height=2, command=Visual)
-visButton.grid(column=3, row=1, padx=10,pady=10,sticky=E)
-
-compareButton = Button(roots, text='COMPARE',fg='red',width=7,height=2, command=Compare)
-compareButton.grid(column=3, row=2, padx=10,pady=10,sticky=E)
-
-setosalabel = Label(roots, text='SETOSA', background='black', fg='white', font=("Cursive", 20))
-setosalabel.grid(row = 3,column = 0)
-
-load = Image.open("Iris_setosa.jpg")
-render = ImageTk.PhotoImage(load)
-img = Label(image=render,height = 250,bg='blue')
-img.image = render
-img.grid(row = 5, column=0)
-
-
-versilabel = Label(roots, text='VERSICOLOR', background='black', fg='white', font=("aeril", 20))
-versilabel.grid(row = 3,column = 1)
-load = Image.open("Iris_Versicolor.jpg")
-render = ImageTk.PhotoImage(load)
-img = Label(image=render,bg='red')
-img.image = render
-img.grid(row = 5, column=1)  
-
-virglabel = Label(roots, text='VIRGINICA', background='black', fg='white', font=("Bold",20))
-virglabel.grid(row = 3,column = 2)
-
-load = Image.open("Iris_virginica.jpg")
-render = ImageTk.PhotoImage(load)
-img = Label(image=render,bg='green')
-img.image = render
-img.grid(row = 5, column=2)    
-
-
-virglabel = Label(roots, text='Lets run the independent code of all the different Models in the above Buttons', background='black', fg='white', font=("Bold",10))
-virglabel.grid(row = 10,column = 0)
-
-
-### buttons individual
-
-testButton = Button(roots, text='Perceptron',fg='green',width=8,height=2, command=Perceptron)
-testButton.grid(column=0, row=9, padx=10)
-
-trainButton = Button(roots, text='LVQ',fg='green',width=6,height=2, command=Lvq)
-trainButton.grid(column=1, row=9, padx=10)
-
-visButton = Button(roots, text='SVM',fg='green',width=6,height=2, command=Svm)
-visButton.grid(column=2, row=9, padx=10,pady=10)
-
-compareButton = Button(roots, text='SOM',fg='green',width=6,height=2, command=Som)
-compareButton.grid(column=3, row=9, padx=10,pady=10)
-
-## 
-roots.mainloop()
-
+main()

@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-
-
-
-# In[13]:
-
 
 import numpy as np
 
@@ -48,17 +40,12 @@ class Perceptron(object):
       return np.where(self.net_input(X) >= 0.0, 1, -1)
 
 
-# In[14]:
-
-
 
 import pandas as pd
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-# In[15]:
 
 
 df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
@@ -69,8 +56,6 @@ X=df.iloc[0:100, [0, 2]].values
 df.describe()
 
 
-# In[20]:
-
 
 plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o', label='setosa')
 plt.scatter(X[50:100, 0], X[50:100, 1], color='blue', marker='x', label='versicolor')
@@ -78,9 +63,6 @@ plt.xlabel('petal length')
 plt.ylabel('sepal length')
 plt.legend(loc='upper left')
 plt.show()
-
-
-# In[26]:
 
 
 
@@ -93,13 +75,8 @@ plt.ylabel('Number of misclassifications')
 plt.show()
 
 
-# In[25]:
-
-
 print(pn.predict(X))
 
-
-# In[23]:
 
 
 from matplotlib.colors import ListedColormap
@@ -126,9 +103,6 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
   
 
 
-# In[18]:
-
-
 
 plot_decision_regions(X, y, classifier=pn)
 plt.xlabel('sepal length [cm]')
@@ -137,13 +111,8 @@ plt.legend(loc='upper right')
 plt.show()
 
 
-# In[24]:
-
 
 df.head(100)
-
-
-# In[ ]:
 
 
 
