@@ -29,11 +29,12 @@ from PIL import Image, ImageTk
 
 classifier = algorithms.LVQ(n_inputs=4, n_classes=3)
 iris=datasets.load_iris()
+
+#i = np.random.shuffle(iris)
 x=iris.data
-y=iris.target
-data = pd.DataFrame(iris.data)
+y=iris.target.reshape(-1,1)
 
-
+#print(i)
 
 
 def Svm():
@@ -118,7 +119,7 @@ def fuc():
     print(accuracy_score(y_test,predictions))
     msg = messagebox.showinfo('Message',accuracy_score(y_test,predictions))
 
-    pickle.dump(classifier,open('NEwQuerty.sav','wb'))
+    pickle.dump(classifier,open('NEwQuert.sav','wb'))
     global lvq
     lvq = accuracy_score(y_test,predictions)
  
@@ -133,7 +134,7 @@ def algorithms():
         u_input = np.array([E1,E2,E3,E4]).reshape(1,-1)
         answer_label.config(text="Species Found!!!!",fg='red')
         print(u_input)
-        classs = pickle.load(open('NEwQuerty.sav','rb'))
+        classs = pickle.load(open('NEwQuert.sav','rb'))
         print("KIS")
         if classs.predict(u_input) == 0:
                msg = messagebox.showinfo('Message','Setosa')

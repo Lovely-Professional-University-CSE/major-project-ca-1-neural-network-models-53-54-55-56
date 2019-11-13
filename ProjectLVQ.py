@@ -19,7 +19,7 @@ classifier = algorithms.LVQ(n_inputs=4, n_classes=3)
 iris=datasets.load_iris()
 
 x=iris.data
-y=iris.target
+y=iris.target.reshape(-1,1)
 
 
 
@@ -68,7 +68,7 @@ predictions=classifier.predict(x_test)
 
 from sklearn.metrics import accuracy_score
 print(accuracy_score(y_test,predictions))
-u_input = np.array([[6.4, 3.5, 4.5, 1.2]])
+u_input = np.array([[6.9, 3, 5.1, 1.8]])
 
 if classifier.predict(u_input) == 0:
 	print('Setosa')
